@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff5f5">
+  <title>Um pedacinho de mim para você ♡</title>
+  <style>
+    :root {
+      --bg: #fff7f5;
+      --paper: #fffdfb;
+      --pink: #d96f87;
+      --pink-dark: #a84661;
+      --rose: #f8dce2;
+      --ink: #49363d;
+      --muted: #876f77;
+      --line: #f0dce0;
+      --shadow: 0 18px 55px rgba(134, 72, 91, .12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(248,220,226,.6), transparent 28rem),
+        radial-gradient(circle at 90% 35%, rgba(255,229,218,.55), transparent 25rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.65;
+    }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(100% - 28px, 760px); margin: 0 auto; }
+    .hero { min-height: 88vh; display: grid; place-items: center; padding: 54px 0 36px; text-align: center; }
+    .hero-inner { max-width: 620px; }
+    .eyebrow { color: var(--pink-dark); text-transform: uppercase; letter-spacing: .18em; font: 700 .72rem/1.5 Arial, sans-serif; }
+    h1 { font-size: clamp(2.5rem, 9vw, 5rem); line-height: 1.05; font-weight: 500; margin: 16px 0; letter-spacing: -.045em; }
+    .subtitle { color: var(--muted); font-size: clamp(1rem, 3vw, 1.2rem); max-width: 480px; margin: 0 auto 26px; }
+    .heart { color: var(--pink); display: inline-block; animation: pulse 1.8s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.13); } }
+    .btn {
+      border: 0; border-radius: 999px; background: var(--pink); color: white;
+      padding: 14px 23px; font: 700 .96rem Arial, sans-serif; cursor: pointer;
+      box-shadow: 0 8px 22px rgba(217,111,135,.24); transition: transform .2s, background .2s;
+      min-height: 48px;
+    }
+    .btn:hover { transform: translateY(-2px); background: var(--pink-dark); }
+    .btn.secondary { background: white; color: var(--pink-dark); border: 1px solid var(--line); box-shadow: none; }
+    .hint { color: var(--muted); font: .82rem Arial, sans-serif; margin-top: 14px; }
+    section { padding: 30px 0 52px; }
+    .card { background: rgba(255,253,251,.92); border: 1px solid var(--line); border-radius: 25px; padding: clamp(22px, 5vw, 42px); box-shadow: var(--shadow); }
+    h2 { font-size: clamp(1.8rem, 6vw, 2.65rem); font-weight: 500; line-height: 1.15; margin: 0 0 14px; letter-spacing: -.025em; }
+    h3 { font-size: 1.28rem; font-weight: 500; margin: 0 0 8px; }
+    p { margin: 0 0 14px; }
+    .center { text-align: center; }
+    .letter { white-space: pre-line; font-size: 1.08rem; }
+    .divider { width: 70px; height: 2px; background: var(--rose); margin: 22px auto; }
+    .reasons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 22px; }
+    .reason {
+      text-align: left; border: 1px solid var(--line); border-radius: 17px; padding: 17px;
+      background: #fff8f8; color: var(--ink); cursor: pointer; min-height: 110px;
+      font: inherit; transition: transform .2s, background .2s;
+    }
+    .reason:hover { transform: translateY(-2px); background: #fff0f3; }
+    .reason .symbol { display: block; font-size: 1.3rem; margin-bottom: 7px; }
+    .reason .answer { display: none; color: var(--pink-dark); font-size: .98rem; }
+    .reason.open .prompt { display: none; }
+    .reason.open .answer { display: block; }
+    .counter { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 24px 0 8px; }
+    .counter div { background: #fff5f6; border: 1px solid var(--line); padding: 16px 6px; border-radius: 16px; }
+    .counter strong { display: block; font: 700 clamp(1.5rem, 6vw, 2.2rem) Arial, sans-serif; color: var(--pink-dark); }
+    .counter span { font: .75rem Arial, sans-serif; color: var(--muted); }
+    .small { color: var(--muted); font-size: .9rem; }
+    .final-note { background: linear-gradient(135deg, #fff2f4, #fffaf4); }
+    .footer { text-align: center; color: var(--muted); padding: 8px 0 38px; font-size: .88rem; }
+    .hidden { display: none !important; }
+    .music-link { color: var(--pink-dark); font-weight: 700; text-decoration-color: #e9b6c2; text-underline-offset: 4px; }
+    .sparkle { font-size: 1.5rem; letter-spacing: .3rem; color: var(--pink); }
+    @media (max-width: 520px) {
+      .hero { min-height: 82vh; }
+      .reasons { grid-template-columns: 1fr; }
+      .reason { min-height: 88px; }
+      .counter div { padding: 13px 4px; }
+      .card { border-radius: 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero wrap">
+    <div class="hero-inner">
+      <div class="sparkle">✦ ♡ ✦</div>
+      <p class="eyebrow">feito com carinho, só para você</p>
+      <h1>Um pedacinho<br>de mim <span class="heart">♡</span><br>para você</h1>
+      <p class="subtitle">Mesmo que estejamos tão distantes, nossas mentes formam um caminho para nos conectar.</p>
+      <button class="btn" id="openBtn">Abrir meu presente ♡</button>
+      <p class="hint">Preparei isso pensando em você.</p>
+    </div>
+  </header>
+
+  <main id="gift" class="hidden">
+    <section class="wrap">
+      <article class="card">
+        <p class="eyebrow">uma cartinha para o meu amor</p>
+        <h2>Oi, meu amor. ♡</h2>
+        <div class="divider" style="margin-left:0"></div>
+        <div class="letter" id="letterText">Eu queria poder estar sempre ao seu lado, sentir seu calor, sua pele, seus sentimentos tão profundos e, principalmente, todo o amor que você tem por mim.
+
+Dada essa circunstância, queria te mostrar só um pedacinho de tudo o que sinto por você.
+
+Amor, eu não consigo imaginar como alguém poderia não amar tanto uma pessoa como você. Alguém tão responsável, dedicada, inteligente, super amorosa. Eu tenho muita sorte de ter você na minha vida, e me sinto muito alegre e realizado que você também goste de mim do jeito que eu sou
+Fiz essa pequena surpresa para você sempre poder se lembrar de uma coisa: você é belíssima, importante e merece receber toooooooodo carinho do mundo — inclusive nos dias em que talvez não consiga sentir isso tão facilmente.
+
+Espero que, ao abrir cada pedacinho daqui, você sinta um pouquinho do abraço que eu queria te dar pessoalmente.
+
+Com carinho, de alguém que fica feliz por ter você na vida. ♡</div>
+      </article>
+    </section>
+
+    <section class="wrap">
+      <article class="card">
+        <p class="eyebrow">pequenas coisas, sentimentos enormes</p>
+        <h2>Abra quando quiser lembrar…</h2>
+        <p class="small">Toque em cada cartão. Tem uma mensagem guardada para você.</p>
+        <div class="reasons">
+          <button class="reason"><span class="symbol">♡</span><span class="prompt">Por que você é especial</span><span class="answer">Por que eu gosto da forma como você se expressa, da forma que você enxerga as coisas e suas opiniões tão complexas sobre assuntos importantes. Eu amo ouvir seus pensamentos, seus desejos, suas ideias. Amo MESMO, de verde ♡
+</span></button>
+          <button class="reason"><span class="symbol">☀</span><span class="prompt">Quando seu dia estiver difícil</span><span class="answer">Você não precisa ser perfeita. Até porque, para mim você sempre vai ser perfeita. Quero que você se lembre que sempre pode contar comigo quando você precisar de um ombro no qual chorar. Eu quero sempre estar ao lado.
+Você nunca mais vai estar sozinha.</span></button>
+          <button class="reason"><span class="symbol">✉</span><span class="prompt">Quando sentir saudade</span><span class="answer">Em alguns momentos ficamos separados infelizmente. Mas saiba que nesses momentos eu fico pensando em como ser alguém sempre melhor para você, preocupado em como você está se sentindo, e torcendo pra que você também esteja pensando em mim hihi.</span></button>
+          <button class="reason"><span class="symbol">✦</span><span class="prompt">Um desejo meu para nós</span><span class="answer">Quero continuar conhecendo você, criando lembranças, rindo das nossas bobagens e construindo algo bonito, para que futuro possamos viver nossa vida juntos em liberdade.</span></button>
+        </div>
+      </article>
+    </section>
+
+    <section class="wrap">
+      <article class="card center">
+        <p class="eyebrow">nossa pequena história</p>
+        <h2>Cada dia é um pedacinho a mais. ♡</h2>
+        <p class="small">Desde o dia que escolhi abaixo, este contador mostra o tempo que passou.</p>
+        <div class="counter" aria-live="polite">
+          <div><strong id="days">—</strong><span>DIAS</span></div>
+          <div><strong id="hours">—</strong><span>HORAS</span></div>
+          <div><strong id="minutes">—</strong><span>MINUTOS</span></div>
+        </div>
+        <p class="small" id="counterNote">Personalize a data no código para ativar o contador.</p>
+      </article>
+    </section>
+
+    <section class="wrap">
+      <article class="card final-note center">
+        <p class="eyebrow">antes de você ir…</p>
+        <div class="sparkle">♡ ✧ ♡</div>
+        <h2>Se eu pudesse escolher agora…</h2>
+        <p style="font-size:1.08rem; max-width:540px; margin:0 auto 18px">Eu escolheria estar ao seu lado, segurar sua mão, ouvir você falar sobre seu dia e aproveitar até os momentos mais simples. Por enquanto, deixo estas palavras atravessarem a distância por mim.</p>
+        <p style="font-size:1.18rem"><strong>Você é muito especial para mim. Obrigado por fazer parte da minha vida. ♡</strong></p>
+        <div class="divider"></div>
+        <p id="signature" style="font-size:1.15rem">Com carinho, de quem gosta muito de você.</p>
+        <a id="songLink" class="music-link hidden" href="#" target="_blank" rel="noopener noreferrer">Ouvir nossa música ♫</a>
+        <p class="small" style="margin-top:20px">Este presente foi feito especialmente para você.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer wrap">feito com carinho e um pouquinho de código ♡</footer>
+
+  <script>
+    /*
+      PERSONALIZE AQUI:
+      1. Coloque a data de início do namoro no formato AAAA-MM-DD.
+         Exemplo: "2026-09-14"
+      2. Troque o nome/assinatura por algo que você costuma dizer a ela.
+      3. Reescreva a carta e os cartões com detalhes reais de vocês.
+      4. Se quiser, cole o link de uma música em SONG_URL.
+    */
+    const START_DATE = "2026-08-10"
+    const SIGNATURE = "Com amor, da pessoa que mais te adora nesse mundo"
+    const SONG_URL = "https://youtu.be/siO6dkqidc4"
+
+    document.getElementById("signature").textContent = SIGNATURE;
+
+    document.getElementById("openBtn").addEventListener("click", () => {
+      document.getElementById("gift").classList.remove("hidden");
+      document.getElementById("openBtn").textContent = "Seu presente está aqui ♡";
+      document.getElementById("gift").scrollIntoView({ behavior: "smooth" });
+    });
+
+    document.querySelectorAll(".reason").forEach((button) => {
+      button.addEventListener("click", () => button.classList.toggle("open"));
+    });
+
+    if (SONG_URL.trim()) {
+      const link = document.getElementById("songLink");
+      link.href = SONG_URL.trim();
+      link.classList.remove("hidden");
+    }
+
+    function updateCounter() {
+      if (!START_DATE) return;
+      const start = new Date(START_DATE + "T00:00:00");
+      if (Number.isNaN(start.getTime()) || start > new Date()) {
+        document.getElementById("counterNote").textContent = "Confira a data de início no código.";
+        return;
+      }
+      const diff = Date.now() - start.getTime();
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const minutes = Math.floor((diff % 3600000) / 60000);
+      document.getElementById("days").textContent = days.toLocaleString("pt-BR");
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("counterNote").textContent = "E ainda temos tantas lembranças para criar.";
+    }
+    updateCounter();
+    if (START_DATE) setInterval(updateCounter, 60000);
+  </script>
+</body>
+</html>
